@@ -1,0 +1,50 @@
+{% set name = "pymicro" %}
+{% set version = "0.5.3" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/heprom/pymicro/archive/v{{ version }}.tar.gz
+  sha256: 95d91ff6121e344d09ef6fcdcec2072bb01a22c7d5d17ab53f7a2a15a4a35e0d
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.6
+    - setuptools >=42.0.0
+    - wheel
+    - pip
+  run:
+    - python >=3.6
+    - numpy
+    - scipy
+    - scikit-image
+    - matplotlib-base
+    - vtk-base
+    - h5py
+    - lxml
+    - pytables
+    - basictools
+
+test:
+  imports:
+    - pymicro
+
+about:
+  home: https://github.com/heprom/pymicro
+  summary: An open-source Python package to work with material microstructures and 3d data sets
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.md
+  doc_url: https://pymicro.readthedocs.io/
+  dev_url: https://github.com/heprom/pymicro
+
+extra:
+  recipe-maintainers:
+    - t20100
