@@ -8,6 +8,9 @@ package:
 source:
   url: https://github.com/heprom/pymicro/archive/v{{ version }}.tar.gz
   sha256: 95d91ff6121e344d09ef6fcdcec2072bb01a22c7d5d17ab53f7a2a15a4a35e0d
+  patches:
+    # backport https://github.com/heprom/pymicro/pull/24
+    - patches/0001-fix-python3-print-syntax.patch
 
 build:
   noarch: python

@@ -1,0 +1,25 @@
+From 2b5d2e840f25e058836db605b62c50d584b80228 Mon Sep 17 00:00:00 2001
+From: Thomas VINCENT <thomas.vincent@esrf.fr>
+Date: Wed, 24 Jan 2024 13:45:46 +0100
+Subject: [PATCH] fix python3 print syntax
+
+---
+ examples/plotting/xray_mar165_detector.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/examples/plotting/xray_mar165_detector.py b/examples/plotting/xray_mar165_detector.py
+index 7cee730b..2e3d364c 100644
+--- a/examples/plotting/xray_mar165_detector.py
++++ b/examples/plotting/xray_mar165_detector.py
+@@ -17,7 +17,7 @@ mar.bg = HST_read('../data/c1_exptime_bgair_5.raw', data_type=np.uint16, dims=(2
+ mar.load_image('../data/c1_exptime_air_5.raw')
+ 
+ image_name = os.path.splitext(__file__)[0] + '.png'
+-print 'writting %s' % image_name
++print('writting %s' % image_name)
+ plt.imsave(image_name, mar.corr_data, vmin=0, vmax=2000)
+ 
+ from matplotlib import image
+-- 
+2.37.1 (Apple Git-137.1)
+
